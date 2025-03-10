@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>자리 정하기</title>
+    </head>
+    <body style="background-color: #f8f4f8;">
+        <h1>1-2 자리 정하기</h1>
+        <h2>교탁 위치</h2>
+        <div>
+            <button class="buttons">1</button>
+            <button class="buttons">2</button>
+            <button class="buttons">3</button>
+            <button class="buttons">4</button>
+        </div>
+        <div>
+            <button class="buttons">5</button>
+            <button class="buttons">6</button>
+            <button class="buttons">7</button>
+            <button class="buttons">8</button>
+        </div>
+        <div>
+            <button class="buttons">9</button>
+            <button class="buttons">10</button>
+            <button class="buttons">11</button>
+            <button class="buttons">12</button>
+        </div>
+        <div>
+            <button class="buttons">13</button>
+            <button class="buttons">14</button>
+            <button class="buttons">15</button>
+            <button class="buttons">16</button>
+        </div>
+        <button id="randomButton">랜덤 자리 선택</button>
+
+        <script>
+            let buttons = document.getElementsByClassName("buttons");
+            let randomButton = document.getElementById("randomButton");
+            let arr = [];
+            let name = ['곽민석','김강민','김민성','김재원','신재호','유빈','유채민','이다혜','이동현','이은','이재용','이지민','이현우','이현준','임주원','최은수'];
+            for (let i = 0; i < 16; i++){
+                let kk = Math.floor(Math.random() * 16);
+                if(arr.includes(kk)){
+                    i--;
+                    continue;
+                }
+                else{
+                    arr.push(kk);
+                }
+            }
+            for(let i = 0; i < 16; i++){
+                buttons[i].addEventListener("click", function(){
+                    alert(`이 자리는 ${arr[i]+1}번 ${name[arr[i]]}의 자리입니다!`);
+                });
+            }
+            randomButton.addEventListener("click", function(){
+                
+            });
+        </script>
+    </body>
+    <style>
+        #randomButton{
+            scale: 100%;
+            margin: 10px;
+            font-size: 100%;
+            background-color: #ADB2D4;
+            border: 2px solid #EEF1DA;
+
+            border-radius: 10px;
+            mask-border-outset: 10px;
+            transition: all 0.1s ease;
+            color: #191918;
+        }
+        #randomButton:hover{
+            scale: 1.1;
+            background-color: #C7D9DD;
+            border: none;
+            color: #191918;
+        }
+        #randomButton:active{
+            scale: 0.95;
+            background-color: #D5E5D5;
+            color: #191918;
+        }
+        .buttons{
+            width: 70px;
+            height: 50px;
+            margin: 10px;
+            font-size: 20px;
+            background-color: #ADB2D4;
+            border: 2px solid #EEF1DA;
+            border-radius: 10%;
+            mask-border-outset: 10px;
+            transition: all 0.1s ease;
+            color: #191918;
+        }
+        .buttons:hover{
+            scale: 1.1;
+            background-color: #C7D9DD;
+            border: none;
+            color: #191918;
+        }
+        .buttons:active{
+            scale: 0.95;
+            background-color: #D5E5D5;
+            color: #191918;
+        }
+        h1 {
+            text-align: left;
+            background-color: #ADB2D4;
+            padding: 20px;
+            color: #191918;
+            border: 2px solid #EEF1DA;
+        }
+        h2 {
+            text-align: center;
+            padding: 20px;
+            margin:0px 200px;
+            border-radius: 10px;
+            background-color: #ADB2D4;
+            color: #191918;
+            border: 2px solid #EEF1DA;
+        }
+        div {
+            text-align: center;
+        }
+    </style>
+</html>
